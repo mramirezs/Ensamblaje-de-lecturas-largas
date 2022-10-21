@@ -32,5 +32,16 @@ porechop -i all_records.fastq -o porechop_records.fastq --threads 25
 NanoStat --fastq porechop_records.fastq > stat_porechop_records.txt
 ```
 
+## Filtrar las lecturas por longitud y por calidad de bases
+
+```
+NanoFilt -q 9 -l 9999 porechop_records.fastq > nanofilt_records.fastq
+```
+
+## Ensamblaje De Novo
+
+```
+flye --nano-raw nanofilt_records.fastq --out-dir flye --genome-size 426m --threads 30
+```
 
 
