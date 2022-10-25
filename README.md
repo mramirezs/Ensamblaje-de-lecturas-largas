@@ -2,7 +2,7 @@
 
 ## Convertir fast5 a fastq
 
-Un requerimiento para el llamado de variantes es conocer el flowcell que se usó en el secuenciador, para nuestros caso tenemos FLO-MIN106, con el kit ADN genómico SQK-LSK110 y para ARN el kit SQK-PCB109.
+Un requerimiento para el llamado de las bases en  es conocer el flowcell que se usó en el secuenciador, para nuestros caso tenemos FLO-MIN106, con el kit ADN genómico SQK-LSK110 y para ARN el kit SQK-PCB109.
 
 Para conocer la listas de workflows usamos el comando:
 
@@ -36,10 +36,11 @@ Output:
 FLO-MIN106     SQK-LSK110                  dna_r9.4.1_450bps_hac          2021-05-17_dna_r9.4.1_minion_384_d37a2ab9
 FLO-MIN106     SQK-LSK110-XL               dna_r9.4.1_450bps_hac          2021-05-17_dna_r9.4.1_minion_384_d37a2ab9
 ```
-Con los datos obtenidos se procese al llamado de variantes:
+
+Con los datos obtenidos se procese al llama:
 
 ```
-guppy_basecaller -r -i fast5 -s raw_data --config /opt/ont/guppy/data/dna_r9.4.1_450bps_sup.cfg -q 0 --trim_strategy dna --disable_trim_barcodes --compress_fastq --calib_detect
+guppy_basecaller -r -i fast5 -s raw_data --config /opt/ont/guppy/data/dna_r9.4.1_450bps_sup.cfg -q 0 --trim_strategy dna --disable_trim_barcodes --compress_fastq --calib_detect --cpu_threads_per_caller 30
 ```
 
 ## Descomprimir los archivos fastq.gz 
