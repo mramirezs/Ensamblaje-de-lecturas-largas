@@ -9,6 +9,7 @@ Para conocer la listas de workflows usamos el comando:
 ```
 $ guppy_basecaller --print_workflows | head
 ```
+
 Output:
 
 ```
@@ -28,6 +29,7 @@ Para identificar nuestro flowcell usamos:
 ```
 $ guppy_basecaller --print_workflows | grep "SQK-LSK110" | grep "FLO-MIN106"
 ```
+
 Output:
 
 ```
@@ -37,7 +39,18 @@ FLO-MIN106     SQK-LSK110-XL               dna_r9.4.1_450bps_hac          2021-0
 Con los datos obtenidos se procese al llamado de variantes:
 
 ```
-$ for FILE in $(ls )guppy_basecaller -r -i fast5_pass --save_path fastq_hac --config /opt/ont/guppy/data/dna_r9.4.1_450bps_sup.cfg -q 0 --trim_strategy dna --disable_trim_barcodes --compress_fastq --calib_detect --device autp &> ${FILE}.out
+#!/bin/bash
+
+inputFile='/media/prosopis/E/MinionRaw/Minion/gDNAProsopis_sup/fast5/'
+outputDir='result/'
+threads=20
+
+for FILE in $(ls *.fastq.gz | sed 's/.fastq.gz//');
+  do
+
+guppy_basecaller -r -i $inputFile --save_path  --config /opt/ont/guppy/data/dna_r9.4.1_450bps_sup.cfg -q 0 --trim_strategy dna --disable_trim_barcodes --compress_fastq --calib_detect --device autp &> ${FILE}.out
+
+done
 ```
 
 ## Descomprimir los archivos fastq.gz 
