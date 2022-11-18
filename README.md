@@ -40,7 +40,7 @@ FLO-MIN106     SQK-LSK110-XL               dna_r9.4.1_450bps_hac          2021-0
 Con los datos obtenidos se procese al llama:
 
 ```
-guppy_basecaller -r -i fast5 -s raw_data --config /opt/ont/guppy/data/dna_r9.4.1_450bps_sup.cfg -q 0 --trim_strategy dna --disable_trim_barcodes --compress_fastq --calib_detect --cpu_threads_per_caller 30
+guppy_basecaller -i fast5 -s raw_data --device "cuda:0" --flowcell FLO-MIN106 --kit SQK-LSK110
 ```
 
 ## Descomprimir los archivos fastq.gz 
