@@ -1,5 +1,28 @@
 # Ensamblaje-de-lecturas-largas
 
+## Instalación de Guppy
+
+```
+sudo apt update
+sudo apt install wget lsb-release
+export PLATFORM=$(lsb_release -cs)
+wget -O- https://cdn.oxfordnanoportal.com/apt/ont-repo.pub | sudo apt-key add -
+echo "deb http://cdn.oxfordnanoportal.com/apt ${PLATFORM}-stable non-free" | sudo tee /etc/apt/sources.list.d/nanoporetech.sources.list
+sudo apt update
+```
+
+* Instalación:
+
+```
+sudo apt install ont-guppy
+```
+
+o
+
+```
+sudo apt install ont-guppy-cpu
+```
+
 ## Convertir fast5 a fastq
 
 Un requerimiento para el llamado de las bases en  es conocer el flowcell que se usó en el secuenciador, para nuestros caso tenemos FLO-MIN106, con el kit ADN genómico SQK-LSK110 y para ARN el kit SQK-PCB109.
