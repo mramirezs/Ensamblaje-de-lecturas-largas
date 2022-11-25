@@ -2,6 +2,8 @@
 
 ## Instalación de Guppy
 
+* Primera añadimos el repositorio de Oxford Nanopore a nuestros sistema Linux (Ubuntu 21.04 focal)
+
 ```
 sudo apt update
 sudo apt install wget lsb-release
@@ -11,7 +13,7 @@ echo "deb http://cdn.oxfordnanoportal.com/apt ${PLATFORM}-stable non-free" | sud
 sudo apt update
 ```
 
-* Instalación:
+* Luego, realizamos la instalación desde el sistema.
 
 ```
 sudo apt install ont-guppy
