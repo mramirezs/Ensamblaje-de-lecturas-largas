@@ -8,7 +8,9 @@ sudo apt install nvidia-utils-525
 
 ## Instalación de Guppy
 
-* Primera añadimos el repositorio de Oxford Nanopore a nuestros sistema Linux (Ubuntu 21.04 focal)
+* Guppy se distribuye como un archivo tar y está disponible a través de su web comunitaria https://community.nanoporetech.com/. El archivo normalmente tiene un nombre como ont-guppy_version_linux64.tar.gz (versión GPU) y ont-guppy-cpu_version_linux64.tar.gz (versión CPU).
+
+* Nosotros trabajaremos con la versión 6.3.7:
 
 ```
 wget https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy_6.3.7_linux64.tar.gz
