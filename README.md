@@ -1,28 +1,23 @@
 # Ensamblaje-de-lecturas-largas
 
+## Instalar el driver de la tarjeta de video (NVIDIA)
+
+```
+sudo apt install nvidia-utils-525
+```
+
 ## Instalación de Guppy
 
 * Primera añadimos el repositorio de Oxford Nanopore a nuestros sistema Linux (Ubuntu 21.04 focal)
 
 ```
-sudo apt update
-sudo apt install wget lsb-release
-export PLATFORM=$(lsb_release -cs)
-wget -O- https://cdn.oxfordnanoportal.com/apt/ont-repo.pub | sudo apt-key add -
-echo "deb http://cdn.oxfordnanoportal.com/apt ${PLATFORM}-stable non-free" | sudo tee /etc/apt/sources.list.d/nanoporetech.sources.list
-sudo apt update
-```
-
-* Luego, realizamos la instalación desde el sistema.
-
-```
-sudo apt install ont-guppy
-```
-
-o
-
-```
-sudo apt install ont-guppy-cpu
+wget https://mirror.oxfordnanoportal.com/software/analysis/ont-guppy_6.3.7_linux64.tar.gz
+tar xvfz ont-guppy_6.3.7_linux64.tar.gz 
+cd ont-guppy/
+cd bin/
+./guppy_basecaller --help
+pwd
+sudo ln -s /home/prosopis/Bioprograms/ont-guppy/bin/guppy_basecaller /usr/local/bin/guppy_basecaller
 ```
 
 ## Convertir fast5 a fastq
